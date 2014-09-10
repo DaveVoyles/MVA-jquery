@@ -16,9 +16,9 @@ $(function() {
 
         // Draw every evangelist in our json file to the screen
         success: function(data) {
-            $.each(data, function(i, data) {
-                $evangelists.append('<li>name:' + data.name + ' location: ' + data.location + '</li>');
-                console.log(data);
+            $.each(data, function (i, evangelists) {
+                $evangelists.append('<li>Name:' + evangelists.evangelist + ' Location: ' + evangelists.evangelist + '</li>');
+                console.log(evangelists);
             });
 
         },
@@ -41,28 +41,5 @@ $(function() {
     });
 
 });
-
-
-
-
-    var jsonData = {  
-        "evangelists":{  
-            "evangelist":[  
-               {  
-                   "name":"Dave Voyles",
-                   "location":"Philadelphia"
-               },
-               {  
-                   "name":"Stacey Mulcahey",
-                   "location":"New York"
-               },
-                {  
-                    "name":"Jason Fox",
-                    "location":"Dallas"
-                }
-            ]
-        }
-    }
-
 
 
