@@ -15,9 +15,10 @@ $(function() {
         url: "js/evangelists.json",
 
         // Draw every evangelist in our json file to the screen
+        // using a number wroks here, but if I use [i], it returns null. Odd?
         success: function(data) {
             $.each(data, function (i, evangelists) {
-                $evangelists.append('<li>Name:' + evangelists.evangelist + ' Location: ' + evangelists.evangelist + '</li>');
+                $evangelists.append('<li>Name: ' + evangelists.evangelist[2].name + ' Location: ' + evangelists.evangelist + '</li>');
                 console.log(evangelists);
             });
 
