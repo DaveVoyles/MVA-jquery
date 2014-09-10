@@ -1,0 +1,15 @@
+﻿var jsonData =  [
+                    {
+                        "name": "Dave Voyles",
+                        "location": "Philadelphia"
+                    },
+                    {
+                        "name": "Stacey Mulcahey",
+                        "location": "New York"
+                    },
+                    {
+                        "name": "Jason Fox",
+                        "location": "Dallas"
+                    }
+                ];
+
