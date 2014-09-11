@@ -8,23 +8,24 @@ $(function() {
     var $name        = $('#name');
     var $location    = $('#location');
 
+    // Post or Get JSON data with one function
+    function addEvangelist(data) {
+        $evangelists.append('<li>Name: ' + data.name + ' Location: ' + data.location + '</li>');
+    }
 
-    // GET LATEST RESULTS FROM JSON DATA HERE
+    // Get latest JSON data from server 
     $.ajax({
         type: 'GET',
-        url: "js/evangelists.json",
+        url:  'js/evangelists.json',
 
         // Draw every evangelist in our json file to the screen
-        // using a number wroks here, but if I use [i], it returns null. Odd?
         success: function (data) {
             $.each(data.evangelist, function (i, item) {
-                $evangelists.append('<li>Name: ' + item.name + ' Location: ' +item.location + '</li>');
-                console.log(data.evangelist);
+                addEvangelist(item);
             });
-
         },
         error: function() {
-            alert("error retrieving evangelists");
+            alert("error retrieving evangelist data");
         }
     });
 
@@ -34,11 +35,27 @@ $(function() {
 
         // Add an eveangelist object to the list
         var evangelist = {
-            name: $name.val(),
+            name:     $name.val(),
             location: $location.val(),
         };
 
-        // ADD POST REQUEST HERE
+        jQuery.support.cors = true;
+        // Push evanegelist object to JSON file
+        $.ajax({
+            type: 'POST',
+            url: 'js/evangelists.json',
+            data: evangelist,
+
+            // Draw every evangelist in our json file to the screen
+            success: function (data) {
+                $.each(data.evangelist, function (i, item) {
+                    addEvangelist(item);
+                });
+            },
+            error: function () {
+                alert("error posting evangelist data");
+            }
+        });
     });
 
 });

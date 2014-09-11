@@ -1,16 +1,16 @@
 ﻿{   
-      "evangelist":[  
-         {  
-            "name":"Dave Voyles",
+    "evangelist":[  
+        {  
+            "name":    "Dave Voyles",
             "location":"Philadelphia"
-         },
-         {
-            "name": "Stacey Mulcahey",
+        },
+        {
+            "name":     "Stacey Mulcahey",
             "location": "New York"
         },
         {
-            "name": "Jason Fox",
+            "name":      "Jason Fox",
             "location":  "Dallas"
         }
-      ]
+    ]
 }
