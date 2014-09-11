@@ -1,5 +1,4 @@
-﻿{  
-   "evangelists":{  
+﻿{   
       "evangelist":[  
          {  
             "name":"Dave Voyles",
@@ -12,8 +11,6 @@
         {
             "name": "Jason Fox",
             "location":  "Dallas"
-
         }
       ]
-   }
 }

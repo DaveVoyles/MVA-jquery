@@ -17,9 +17,9 @@ $(function() {
         // Draw every evangelist in our json file to the screen
         // using a number wroks here, but if I use [i], it returns null. Odd?
         success: function (data) {
-            $.each(data.evangelists.evangelist, function (i, item) {
+            $.each(data.evangelist, function (i, item) {
                 $evangelists.append('<li>Name: ' + item.name + ' Location: ' +item.location + '</li>');
-                console.log(data.evangelists.evangelist);
+                console.log(data.evangelist);
             });
 
         },
