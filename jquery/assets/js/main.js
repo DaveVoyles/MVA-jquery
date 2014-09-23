@@ -41,9 +41,10 @@ $(function() {
 
         jQuery.support.cors = true;
         // Push evanegelist object to JSON file
+        //TODO: You can't "write out" a JSON file without server side 
         $.ajax({
             type: 'POST',
-            url: 'js/evangelists.json',
+            url: 'assets/data/evangelists.json',
             data: evangelist,
 
             // Draw every evangelist in our json file to the screen
