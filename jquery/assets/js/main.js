@@ -16,7 +16,7 @@ $(function() {
     // Get latest JSON data from server 
     $.ajax({
         type: 'GET',
-        url:  'js/evangelists.json',
+        url: 'js/evangelists.json',
 
         // Draw every evangelist in our json file to the screen
         success: function (data) {
@@ -38,7 +38,7 @@ $(function() {
             name:     $name.val(),
             location: $location.val(),
         };
-
+        w
         jQuery.support.cors = true;
         // Push evanegelist object to JSON file
         //TODO: You can't "write out" a JSON file without server side 
