@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 // Executed as soon as the page loads
-$(function() {
+$(document).ready(function () {
 
     // Cache the fields for name and location
     var $evangelists = $('#evangelists');

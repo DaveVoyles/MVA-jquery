@@ -1,0 +1,73 @@
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<title>TEST</title>
+
+<body>
+testing
+
+
+<script>
+
+
+$(document).ready(function(){
+ xhr = new XMLHttpRequest();
+
+
+  function restGet(){
+     $.ajax({
+    url: 'https://evangelists.azure-mobile.net/tables/people',
+    type: 'GET',
+    datatype: 'json',
+    
+    success: function(data) { 
+        var len = data.length;
+        
+          for(var i=0;i<len;i++)
+        {
+        $("<p>"+data[i].name+":"+data[i].location+"</p>").appendTo('body p');
+        }
+        
+     },
+    error: function() { alert('Failed!'); },
+    beforeSend: setHeader       
+  });   
+  }
+
+  function restPost(){
+     $.ajax({
+    url: ' https://evangelists.azure-mobile.net/tables/people',
+    type: 'POST',
+    datatype: 'json',
+    data:{'name':'Stacey Mulcahy','location':'New York City'},
+    success: function(data) { 
+        var len = data.length;
+        console.log("stacey is done")
+      
+        
+     },
+    error: function() { alert('Failed!'); },
+    beforeSend: setHeader       
+  });   
+  }
+
+  restGet();
+});
+
+
+function setHeader(xhr) {
+
+  xhr.setRequestHeader('X-ZUMO-APPLICATION', 'ImDNVYiBYFCuENASFmQupAMlDUzamP37');
+
+}
+
+
+
+
+
+</script>
+<p>
+</body>
+</html>
