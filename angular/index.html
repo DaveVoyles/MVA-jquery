@@ -12,14 +12,16 @@
    
     <h2>Evangelists</h2>
     <ul id="evangelists" >
-        <li ng-repeat="category in categories">Name:{{category.name}},Location:{{category.location}}</li>
+        <li ng-repeat="person in people">Name:{{person.name}},Location:{{person.location}}</li>
     </ul>
     
     <h2>Add an Evangelist</h2>
-    <form name="userform">
-    <p>name:     <input type="text" id="name"     ng-model="user.name"/>     </p>
+    <form name="userform" ng-submit="addName(user)">
+    <p>name:     <input type="text" id="name" ng-model="user.name"  ng-required="true" ng-minlength="2" ng-/>
+        
+        </p>
     <p>location: <input type="text" id="location" ng-model="user.location"/></p>
-    <button id="btn-add-evangelist" ng-click="addName(user)">Add to list</button>
+    <button id="btn-add-evangelist">Add to list</button>
    </form>
     
 

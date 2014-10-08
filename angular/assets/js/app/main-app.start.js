@@ -2,13 +2,21 @@
 
 angular.module('MainApp', [
 ])
-    
-.controller("MainController", function($scope, $http){
- $http.get('assets/data/evangelists.json')
-       .then(function(res){
-          $scope.categories = res.data.evangelist;                
-       });
 
+
+
+    
+.controller("MainController", function ($scope, $http) {
+
+    var config = {
+        headers: {
+            'X-ZUMO-APPLICATION': 'ImDNVYiBYFCuENASFmQupAMlDUzamP37'
+        }
+    };
+
+  getNames();
+
+  $scope.people = [];
   $scope._name     = "Default Name";
   $scope._location = "Default Location";
   $scope.user      = {
@@ -28,10 +36,24 @@ angular.module('MainApp', [
     }
   }
 
+  function getNames() {
+      $http.get('https://evangelists.azure-mobile.net/tables/people', config)
+   .then(function (res) {
+       console.log(res);
+       $scope.people = res.data;
+   });
+  }
+// add in resource 
  function addName(user){
-  $scope.categories.push(user);
+     //$scope.categories.push(user);
+     $http.post('https://evangelists.azure-mobile.net/tables/people', user, config)
+       .then(function (res) {
+           $scope.getNames();
+       });
  }
 
  $scope.addName = addName;
+ $scope.getNames = getNames;
 
 })
+
