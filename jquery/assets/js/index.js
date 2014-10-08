@@ -5,16 +5,15 @@ $(document).ready(function () {
     restGet();
 });
 
-var xhr          = new XMLHttpRequest();
-
 // Cache the fields for name and location
+var xhr          = new XMLHttpRequest();
 var $evangelists = $('#evangelists');
 var $name        = $('#name');
 var $location    = $('#location');
 
 
 /* When we click on the button, we add a new evangelist to the list
-***************************************************************/
+*******************************************************************/
 $('#btn-add-evangelist').on('click', function () {
 
     // Add an eveangelist object to the list
@@ -22,7 +21,6 @@ $('#btn-add-evangelist').on('click', function () {
         name:     $name.val(),
         location: $location.val(),
     };
-    // TODO: pass in evangelist object to restPost
     restPost(evangelist);
 });
 
@@ -31,22 +29,19 @@ $('#btn-add-evangelist').on('click', function () {
 ***************************************************/
 function restGet(){
     $.ajax({
-        url:      'https://evangelists.azure-mobile.net/tables/people',
-        type:     'GET',
-        datatype: 'json',
-        
-        // Retrieve JSON from the server
+        url:       'https://evangelists.azure-mobile.net/tables/people',
+        type:      'GET',
+        datatype:  'json',
+        beforeSend: setHeader,      
+       
         success: function(data) { 
             var len = data.length;
-        
-            for(var i=0;i<len;i++){
-                $evangelists.append('<li>Name: ' + data[i].name + ' Location: ' + data[i].location + '</li>');
-                console.log("Returned data");
-                console.log(data[i]);
+
+            for(var i=0; i<len; i++){
+                $evangelists.append('<li>Name: ' + data[i].name + ",&nbsp;&nbsp;" + ' Location: ' + data[i].location + '</li>');
             }
         },
-        error: function() { alert('Failed!'); },
-        beforeSend: setHeader       
+        error: function() { alert('Failed!'); }, 
     });   
 }
 
@@ -55,35 +50,29 @@ function restGet(){
 ********************************************/
 function restPost(evangelist){
     $.ajax({
-        url:      'https://evangelists.azure-mobile.net/tables/people',
-        type:     'POST',
-        datatype: 'json',
-        //data:{'name':'Stacey Mulcahy','location':'New York City'},
-        data: evangelist,
+        url:        'https://evangelists.azure-mobile.net/tables/people',
+        type:       'POST',
+        datatype:   'json',
+        beforeSend: setHeader,   
+        data:       evangelist,
+
         success: function (data) {
             var len = data.length;
 
             for (var i = 0; i < len; i++) {
-                console.log(data);
-                addEvangelist(data);
+                $evangelists.append('<li>Name: ' + data[i].name + ",&nbsp;&nbsp;" + ' Location: ' + data[i].location + '</li>');
             }
         },
-        error:      function() { alert('Failed!'); },
-        beforeSend: setHeader       
+        error:      function() { alert('Failed!'); },    
     });   
 }
 
 
-/* Used for authorization, to access the JSON data in the database
-******************************************************************/
+/* Used for authorization, to access the JSON data in the Azure Mobile Service
+******************************************************************************/
 function setHeader(xhr) {
     xhr.setRequestHeader('X-ZUMO-APPLICATION', 'ImDNVYiBYFCuENASFmQupAMlDUzamP37');
 }
 
 
-/* Post or Get JSON data with one function
-******************************************/
-function addEvangelist(data) {
-    $evangelists.append('<li>Name: ' + data.name + ' Location: ' + data.location + '</li>');
-}
 
