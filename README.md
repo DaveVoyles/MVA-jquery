@@ -35,7 +35,8 @@ Wrap your apps in something like Cordova with the Intel XDK and have it work on 
 
 ###Features
  - Runs on nearly every device that has a browser 
- - extend HTML vocabulary for your application 
+ - Extend HTML vocabulary for your application 
+ - Contains projects for both jQuery and Angular users
 
 ###Requirements
 - A text editor
@@ -46,7 +47,7 @@ Wrap your apps in something like Cordova with the Intel XDK and have it work on 
 ###Setup
 1. Download the source from [GitHub](https://github.com/DaveVoyles/MVA-jquery)
 2. Set up your web server (either local or remote)
-3. Deploy the site!
+3. Navigate to */Angular* or */jQuery* folders. Point your web server towards *index.html* and you'll be up and running. 
 
 
 
