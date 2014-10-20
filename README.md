@@ -35,6 +35,7 @@ Wrap your apps in something like Cordova with the Intel XDK and have it work on 
 
 ###Features
  - Runs on nearly every device that has a browser 
+ - extend HTML vocabulary for your application 
 
 ###Requirements
 - A text editor
@@ -59,6 +60,8 @@ Wrap your apps in something like Cordova with the Intel XDK and have it work on 
 **Where should I start?**
 Take a look at the MVA course that Stacey and I did. That walks you through the entire process of building this application, along with the source code for both. 
 
+After that, I'd suggest the [AngularJS docs & Examples] (https://angularjs.org/)
+
 ----------
 ## Resources
 - [Microsoft's BizSpark ](http://davevoyles.azurewebsites.net/bizspark-free-software-cloud-services-o/)
@@ -67,6 +70,7 @@ Take a look at the MVA course that Stacey and I did. That walks you through the 
 )
 - [Angular style guide ](https://github.com/johnpapa/angularjs-styleguide#single-responsibility
 )
+- [AngularJS docs & Examples] (https://angularjs.org/)
 
 
 ------------
