@@ -95,7 +95,7 @@ Take a look at the MVA course that Stacey and I did. That walks you through the 
 Ex: angular.module('finance2', [])
 
 
-##Controllers
+###Controllers
 - Behavior behind the DOM elements
 - JavaScript functions which are bound to a particular scope
 - Attached to the DOM via the ng-controller directive. 
@@ -108,24 +108,24 @@ Ex: angular.module('finance2', [])
 		-  Defines a controller to be bound with the view. 
 	
 
-##Directives
+###Directives
 - Function which executes when the compiler encounters it in the DOM
 - Allow for indirect model <-> view interaction
 - Apply special behavior to attributers or elements in HTML	
 
-##Scope
+###Scope
 - Object that connects the View with Controller
 - Data binding: Moves model data -> View
 - Basically equal to using "this" in JS
 	
 
-##Compiling
+###Compiling
 - compile traverses the DOM and matches directives
 - Sorts the directives by priority
 - Links DOM & Scope, then creates a live binding between the two
 
 
-##Data Binding
+###Data Binding
 - Automatic way of updating the view whenever the model changes 
 
 	 - jQuery way:
